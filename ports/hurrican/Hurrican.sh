@@ -29,7 +29,6 @@ fi
 
 export LD_LIBRARY_PATH="$CONFIGFOLDER/libs:$LD_LIBRARY_PATH"
 
-$ESUDO chmod 666 /dev/tty0
 printf "\033c" > /dev/tty0
 echo "Loading... Please Wait." > /dev/tty0
 
@@ -50,8 +49,8 @@ if [[ ! -e "${DATAFOLDER}/levels/levellist.dat" ]]; then
     rm "${CONFIGFOLDER}/master.zip" > /dev/tty0 2>&1
 fi
 
-bind_directories ~/.config/ ${CONFIGFOLDER}/conf/hurrican/
-bind_directories ~/.local/share/ ${CONFIGFOLDER}/highscores/hurrican/
+bind_directories ~/.config/ ${CONFIGFOLDER}/conf/hurrican
+bind_directories ~/.local/share/ ${CONFIGFOLDER}/highscores/hurrican
 
 $GPTOKEYB "hurrican" -c "$CONFIGFOLDER/hurrican.gptk" &
 SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig" ./hurrican --depth 16 2>&1 | tee $CONFIGFOLDER/log.txt
