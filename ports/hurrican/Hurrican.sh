@@ -49,8 +49,8 @@ if [[ ! -e "${DATAFOLDER}/levels/levellist.dat" ]]; then
     rm "${CONFIGFOLDER}/master.zip" > /dev/tty0 2>&1
 fi
 
-bind_directories ~/.config/ ${CONFIGFOLDER}/conf/hurrican
-bind_directories ~/.local/share/ ${CONFIGFOLDER}/highscores/hurrican
+bind_directories ~/.config/hurrican ${CONFIGFOLDER}/conf/hurrican
+bind_directories ~/.local/share/hurrican ${CONFIGFOLDER}/highscores/hurrican
 
 $GPTOKEYB "hurrican" -c "$CONFIGFOLDER/hurrican.gptk" &
 SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig" ./hurrican --depth 16 2>&1 | tee $CONFIGFOLDER/log.txt
