@@ -50,15 +50,10 @@ if [[ ! -e "${DATAFOLDER}/levels/levellist.dat" ]]; then
     rm "${CONFIGFOLDER}/master.zip" > /dev/tty0 2>&1
 fi
 
-$ESUDO rm -rf ~/.config/hurrican
-ln -sfv ${CONFIGFOLDER}/conf/hurrican/ ~/.config/
-$ESUDO rm -rf ~/.local/share/hurrican
-ln -sfv ${CONFIGFOLDER}/highscores/hurrican/ ~/.local/share/
+bind_directories ~/.config/ ${CONFIGFOLDER}/conf/hurrican/
+bind_directories ~/.local/share/ ${CONFIGFOLDER}/highscores/hurrican/
 
-$ESUDO chmod 666 /dev/uinput
 $GPTOKEYB "hurrican" -c "$CONFIGFOLDER/hurrican.gptk" &
 SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig" ./hurrican --depth 16 2>&1 | tee $CONFIGFOLDER/log.txt
-$ESUDO kill -9 $(pidof gptokeyb)
-$ESUDO systemctl restart oga_events &
-unset LD_LIBRARY_PATH
-printf "\033c" >> /dev/tty0
+
+pm_finish
