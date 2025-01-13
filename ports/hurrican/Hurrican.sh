@@ -49,7 +49,9 @@ if [[ ! -e "${DATAFOLDER}/levels/levellist.dat" ]]; then
     rm "${CONFIGFOLDER}/master.zip" > /dev/tty0 2>&1
 fi
 
+mkdir -p ${CONFIGFOLDER}/conf/hurrican
 bind_directories ~/.config/hurrican ${CONFIGFOLDER}/conf/hurrican
+mkdir -p ${CONFIGFOLDER}/highscores/hurrican
 bind_directories ~/.local/share/hurrican ${CONFIGFOLDER}/highscores/hurrican
 
 $GPTOKEYB "hurrican" -c "$CONFIGFOLDER/hurrican.gptk" &
