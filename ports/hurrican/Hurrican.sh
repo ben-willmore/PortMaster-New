@@ -15,6 +15,7 @@ else
 fi
 
 source $controlfolder/control.txt
+[ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
 
 get_controls
 
@@ -29,7 +30,6 @@ fi
 
 export LD_LIBRARY_PATH="$CONFIGFOLDER/libs:$LD_LIBRARY_PATH"
 
-$ESUDO chmod 666 /dev/tty0
 printf "\033c" > /dev/tty0
 echo "Loading... Please Wait." > /dev/tty0
 
@@ -50,15 +50,12 @@ if [[ ! -e "${DATAFOLDER}/levels/levellist.dat" ]]; then
     rm "${CONFIGFOLDER}/master.zip" > /dev/tty0 2>&1
 fi
 
-$ESUDO rm -rf ~/.config/hurrican
-ln -sfv ${CONFIGFOLDER}/conf/hurrican/ ~/.config/
-$ESUDO rm -rf ~/.local/share/hurrican
-ln -sfv ${CONFIGFOLDER}/highscores/hurrican/ ~/.local/share/
+mkdir -p ${CONFIGFOLDER}/conf/hurrican
+bind_directories ~/.config/hurrican ${CONFIGFOLDER}/conf/hurrican
+mkdir -p ${CONFIGFOLDER}/highscores/hurrican
+bind_directories ~/.local/share/hurrican ${CONFIGFOLDER}/highscores/hurrican
 
-$ESUDO chmod 666 /dev/uinput
 $GPTOKEYB "hurrican" -c "$CONFIGFOLDER/hurrican.gptk" &
 SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig" ./hurrican --depth 16 2>&1 | tee $CONFIGFOLDER/log.txt
-$ESUDO kill -9 $(pidof gptokeyb)
-$ESUDO systemctl restart oga_events &
-unset LD_LIBRARY_PATH
-printf "\033c" >> /dev/tty0
+
+pm_finish
