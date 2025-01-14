@@ -48,6 +48,7 @@ if [[ ! -e "${DATAFOLDER}/levels/levellist.dat" ]]; then
     mv "${CONFIGFOLDER}/Hurrican-master/Hurrican/lang" "${CONFIGFOLDER}"
     rm -rf "${CONFIGFOLDER}/Hurrican-master" > /dev/tty0 2>&1
     rm "${CONFIGFOLDER}/master.zip" > /dev/tty0 2>&1
+    rm "${DATAFOLDER}/textures/pvr/PVRCompress.sh" > /dev/tty0 2>&1
 fi
 
 mkdir -p ${CONFIGFOLDER}/conf/hurrican
