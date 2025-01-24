@@ -21,18 +21,21 @@ get_controls
 
 GAMEDIR=/$directory/ports/aquaria
 CONFDIR="$GAMEDIR/conf/"
-BINARY=aquaria
+BINARY=aquaria.aarch64
 
-mkdir -p "$GAMEDIR/conf"
+mkdir -p "$CONFDIR"
 
 cd $GAMEDIR
 
 > "$GAMEDIR/log.txt" && exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
 # remove extraneous files
-rm -rf Config.dat DoConfig.exe OrgView.exe *.dll
+#rm -rf Config.dat DoConfig.exe OrgView.exe *.dll
 
-#bind_directories ~/.local/share/doukutsu-rs $GAMEDIR/conf
+# copy extra files into place
+rsync -av $GAMEDIR/files/* $GAMEDIR/
+
+bind_directories ~/.Aquaria $CONFDIR
 
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
@@ -47,7 +50,7 @@ export SDL_VIDEO_GL_DRIVER="$GAMEDIR/gl4es.aarch64/libGL.so.1"
 export SDL_VIDEO_EGL_DRIVER="$GAMEDIR/gl4es.aarch64/libEGL.so.1"
 fi
 
-$GPTOKEYB "$BINARY" -c "./$BINARY.gptk" &
+$GPTOKEYB "$BINARY" -c "./aquaria.gptk" &
 
 pm_platform_helper "$GAMEDIR/$BINARY"
 

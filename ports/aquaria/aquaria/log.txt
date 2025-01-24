@@ -1,6 +1,0 @@
-/userdata/system/.local/share/PortMaster/libgl_knulli.txt: line 10: glxinfo: command not found
-Error!: Failed to load data/stringbank.txt
-Running in UINPUT output mode.
-Running in Fake Keyboard mode
-Using ConfigFile ./aquaria.gptk
-Joystick 0 has game controller name 'Anbernic RG40XX-H Controller'

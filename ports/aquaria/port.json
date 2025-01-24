@@ -1,0 +1,34 @@
+{
+  "version": 3,
+  "name": "aquaria.zip",
+  "items": [
+    "Aquaria.sh",
+    "aquaria"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "Aquaria",
+    "porter": [
+      "beniamino"
+    ],
+    "desc": "A massive ocean world, teeming with life and filled with ancient secrets. Join Naija, a lone underwater dweller in search of her family, as she explores the depths of Aquaria. She'll travel from hidden caves, shrouded in darkness, to beautiful, sunlit oases, all lovingly handcrafted by its two creators.",
+    "desc_md": null,
+    "inst": "Buy the game on Steam (GOG should also work) and copy the game files into your ports/aquaria folder.",
+    "inst_md": null,
+    "genres": [
+      "action",
+      "adventure"
+    ],
+    "image": null,
+    "rtr": false,
+    "exp": false,
+    "runtime": null,
+    "reqs": [
+      "!lowres"
+    ],
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": ""
+  }
+}
