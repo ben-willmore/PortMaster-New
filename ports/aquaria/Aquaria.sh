@@ -37,6 +37,13 @@ rsync -av $GAMEDIR/files/* $GAMEDIR/
 
 bind_directories ~/.Aquaria $CONFDIR
 
+# correct resolution
+SETTINGS_FILE="$CONFDIR/preferences/usersettings.xml"
+mv "$SETTINGS_FILE" "$SETTINGS_FILE.bak"
+sed "s/resx=\"[0-9]*\"/resx=\"$DISPLAY_WIDTH\"/" "$SETTINGS_FILE.bak" |\
+  sed "s/resy=\"[0-9]*\"/resy=\"$DISPLAY_HEIGHT\"/" > \
+  "$SETTINGS_FILE"
+
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
 if [ -f "${controlfolder}/libgl_${CFW_NAME}.txt" ]; then 
