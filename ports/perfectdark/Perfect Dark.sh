@@ -31,15 +31,21 @@ cd $GAMEDIR
 bind_directories ~/.local/share/perfectdark $GAMEDIR/conf
 
 # Put ROM in correct place
-find "$GAMEDIR" -maxdepth 2 -type f | while read file
-do
-  checksum=$(md5sum "$file" | awk '{print $1}')
-  if [[ "$checksum" == e03b088b6ac9e0080440efed07c1e40f ]]; then
-    echo Found ROM $file, moving it into place
-    mv $file "$GAMEDIR/conf/data/pd.ntsc-final.z64"
-    break
-  fi
-done
+rom_file="./conf/data/pd.ntsc-final.z64"
+rom_md5=e03b088b6ac9e0080440efed07c1e40f
+if [[ -f "$rom_file" ]]; then
+  echo ROM is in correct location
+else
+  find . -maxdepth 2 -type f | while read file
+  do
+    checksum=$(md5sum "$file" | awk '{print $1}')
+    if [[ "$checksum" == "$rom_md5" ]]; then
+      echo Found ROM $file, moving it into place
+      mv "$file" "$rom_file"
+      break
+    fi
+  done
+fi
 
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
