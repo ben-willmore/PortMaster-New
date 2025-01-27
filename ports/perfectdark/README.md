@@ -4,7 +4,7 @@ A corporation is planning a conspiracy against mankind. A single woman dares to 
 
 This is a build of the decompilation and port to modern platforms of the Nintendo 64 game. This was achieved by numerous authors - see: [https://github.com/n64decomp/perfect_dark](https://github.com/n64decomp/perfect_dark) and [https://github.com/fgsfdsfgs/perfect_dark](https://github.com/fgsfdsfgs/perfect_dark)
 
-Thanks to the teams for this amazing work.
+Thanks to the teams for this amazing work, and to fpasteau for the original armhf portmaster version.
 
 
 ## Installation

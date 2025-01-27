@@ -11,10 +11,10 @@
     "porter": [
       "beniamino"
     ],
-    "desc": "Perfect Dark is a 2000 first-person shooter developed and published by Rare for the Nintendo 64. It has been decompiled and ported to modern platforms - https://github.com/fgsfdsfgs/perfect_dark - and runs natively on 32-bit and 64-bit ARM processors.",
-    "desc_md": "Perfect Dark is a 2000 first-person shooter developed and published by Rare for the Nintendo 64. It has been decompiled and ported to modern platforms - [https://github.com/fgsfdsfgs/perfect_dark](https://github.com/fgsfdsfgs/perfect_dark) - and runs natively on 32-bit and 64-bit ARM processors.",
-    "inst": "To run the port, you must already have a Perfect Dark ROM. Only the version ntsc-final/US V1.1/US Rev 1 (md5 e03b088b6ac9e0080440efed07c1e40f) is supported. Place this file in the gamedata/ folder.",
-    "inst_md": null,
+    "desc": "A corporation is planning a conspiracy against mankind. A single woman dares to face the threat. That woman is Joanna Dark!",
+    "desc_md": "A corporation is planning a conspiracy against mankind. A single woman dares to face the threat. That woman is Joanna Dark!\n\nThis is a build of the decompilation and port to modern platforms of the\nNintendo 64 - [https://github.com/fgsfdsfgs/perfect_dark](https://github.com/fgsfdsfgs/perfect_dark)",
+    "inst": "Copy your original N64 Perfect Dark ROM to roms/perfectdark. It must be version ntsc-final/US V1.1/US Rev 1, with md5sum e03b088b6ac9e0080440efed07c1e40f. Other versions will not work. You can check the md5sum using online tools.",
+    "inst_md": "Copy your original N64 Perfect Dark ROM to `roms/perfectdark`. It must be version `ntsc-final/US V1.1/US Rev 1`, with md5sum `e03b088b6ac9e0080440efed07c1e40f`. Other versions will not work. You can check the md5sum using online tools.",
     "genres": [
       "fps"
     ],
@@ -26,6 +26,6 @@
     "arch": [
       "aarch64"
     ],
-    "min_glibc": ""
+    "min_glibc": "2.32"
   }
 }
