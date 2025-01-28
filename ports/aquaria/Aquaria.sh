@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
@@ -30,19 +29,28 @@ cd $GAMEDIR
 > "$GAMEDIR/log.txt" && exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
 # remove extraneous files
-#rm -rf Config.dat DoConfig.exe OrgView.exe *.dll
+rm -rf *.exe *.dll
 
 # copy extra files into place
 rsync -av $GAMEDIR/files/* $GAMEDIR/
 
 bind_directories ~/.Aquaria $CONFDIR
 
-# correct resolution
+# choose particle settings (for better speed on low powered devices)
+if [[ "$DEVICE_CPU" == RK3566 ]] || [[ "$DEVICE_CPU" == A55 ]]; then
+  N_PARTICLES=512
+else
+  # default / RK3326 / H700
+  N_PARTICLES=128
+fi
+
+# adjust resolution and particle settings
 SETTINGS_FILE="$CONFDIR/preferences/usersettings.xml"
 mv "$SETTINGS_FILE" "$SETTINGS_FILE.bak"
-sed "s/resx=\"[0-9]*\"/resx=\"$DISPLAY_WIDTH\"/" "$SETTINGS_FILE.bak" |\
-  sed "s/resy=\"[0-9]*\"/resy=\"$DISPLAY_HEIGHT\"/" > \
-  "$SETTINGS_FILE"
+sed "s/resx=\"[0-9]*\"/resx=\"$DISPLAY_WIDTH\"/" "$SETTINGS_FILE.bak" \
+  | sed "s/resy=\"[0-9]*\"/resy=\"$DISPLAY_HEIGHT\"/" \
+  | sed "s/NumParticles v=\"[0-9]*\"/NumParticles v=\"$N_PARTICLES\"/" \
+  > "$SETTINGS_FILE"
 
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
