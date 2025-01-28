@@ -24,7 +24,8 @@
     "exp": false,
     "runtime": null,
     "reqs": [
-      "!lowres"
+      "!lowres",
+      "analog_1"
     ],
     "arch": [
       "aarch64"
