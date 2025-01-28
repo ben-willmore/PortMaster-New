@@ -1,3 +1,3 @@
 ## Notes
 
-Compilation details can be found in BUILDING.md.
+See [BUILDING.md](https://github.com/PortsMaster/PortMaster-New/blob/main/ports/aquaria/aquaria/BUILDING.md) for building instructions.
