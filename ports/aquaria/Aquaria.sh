@@ -40,7 +40,7 @@ bind_directories ~/.Aquaria $CONFDIR
 if [[ "$DEVICE_CPU" == RK3566 ]] || [[ "$DEVICE_CPU" == A55 ]]; then
   N_PARTICLES=512
 else
-  # default / RK3326 / H700
+  # default / RK3326 / h700
   N_PARTICLES=128
 fi
 
@@ -65,7 +65,7 @@ export SDL_VIDEO_GL_DRIVER="$GAMEDIR/gl4es.aarch64/libGL.so.1"
 export SDL_VIDEO_EGL_DRIVER="$GAMEDIR/gl4es.aarch64/libEGL.so.1"
 fi
 
-$GPTOKEYB "$BINARY" -c "./aquaria.gptk" &
+$GPTOKEYB "$BINARY" &
 
 pm_platform_helper "$GAMEDIR/$BINARY"
 
