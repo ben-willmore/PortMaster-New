@@ -1,11 +1,11 @@
---- src/SDL_sim_cursor.h.orig	2025-03-05 05:14:47.026277764 +0000
-+++ src/SDL_sim_cursor.h	2025-03-05 05:14:59.594555212 +0000
-@@ -906,7 +906,7 @@
+--- src/main.cpp.orig	2025-03-05 06:00:17.965188632 +0000
++++ src/main.cpp	2025-03-05 06:00:20.870474962 +0000
+@@ -156,7 +156,7 @@
+     SDL_RenderSetLogicalSize(renderer, settings.video.width, settings.video.height);
+     screenTexture = SDL_CreateTexture(renderer, SCREEN_FORMAT, SDL_TEXTUREACCESS_TARGET, settings.video.width, settings.video.height);
  
-     /* Blit sprite */
-     SDL_SetRenderTarget(mouse->renderer, texture);
--    SDL_SetRenderDrawBlendMode(mouse->renderer, SDL_BLENDMODE_BLEND);
-+    SDL_SetRenderDrawBlendMode(mouse->renderer, SDL_BLENDMODE_NONE);
-     SDL_RenderCopy(mouse->renderer, cursor->texture, NULL, &mouse_dest);
+-    SDL_ShowCursor(SDL_DISABLE);
++    // SDL_ShowCursor(SDL_DISABLE);
  }
  
+ void toogleFullscreen()
