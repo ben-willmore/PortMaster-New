@@ -42,10 +42,16 @@ fi
 if [[ ${CFW_NAME} == ROCKNIX ]]; then
   # sim-cursor is not needed on rocknix
   cp vanilla/$BINARY .
- else
-  # sim-cursor is usually neede on other CFWs
+else
+  # sim-cursor is usually needee on other CFWs
   cp sim-cursor/$BINARY .
- fi
+fi
+
+# Calculate deadzone_scale based on DISPLAY_WIDTH
+value=$((4*DISPLAY_WIDTH/480))
+echo "Setting dpad_mouse_step and deadzone_scale to $value"
+sed -i -E "s/(dpad_mouse_step|deadzone_scale) = .*/\1 = $value/g" \
+  "$GAMEDIR"/$BINARY.gptk*
 
 $GPTOKEYB "$BINARY" -c "$BINARY.gptk" &
 
