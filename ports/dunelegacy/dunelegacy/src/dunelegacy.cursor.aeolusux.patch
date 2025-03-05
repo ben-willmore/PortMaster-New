@@ -1,0 +1,11 @@
+--- src/SDL_sim_cursor.h.orig	2025-03-05 05:14:47.026277764 +0000
++++ src/SDL_sim_cursor.h	2025-03-05 05:14:59.594555212 +0000
+@@ -906,7 +906,7 @@
+ 
+     /* Blit sprite */
+     SDL_SetRenderTarget(mouse->renderer, texture);
+-    SDL_SetRenderDrawBlendMode(mouse->renderer, SDL_BLENDMODE_BLEND);
++    SDL_SetRenderDrawBlendMode(mouse->renderer, SDL_BLENDMODE_NONE);
+     SDL_RenderCopy(mouse->renderer, cursor->texture, NULL, &mouse_dest);
+ }
+ 
