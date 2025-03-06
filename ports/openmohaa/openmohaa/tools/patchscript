@@ -21,7 +21,10 @@ cd "$GAMEDIR"
 EXE=$(find "$DATADIR" -maxdepth 1 -name "setup*.exe")
 "$TOOLDIR/innoextract" -e -d "$GAMEDIR" $EXE
 mv "$GAMEDIR"/app/* "$GAMEDIR/"
-
-# Tidy up a bit
 rm -rf "$GAMEDIR/tmp" "$GAMEDIR/app"
-rm "$GAMEDIR"/*.dll "$GAMEDIR"/*.exe "$GAMEDIR"/*.bin
+
+# Delete unneeded files
+rm "$GAMEDIR"/*.dll "$GAMEDIR"/*.exe "$GAMEDIR"/*.bin "$GAMEDIR"/*.ico
+rm "$GAMEDIR/main"/*.dll "$GAMEDIR/main"/*.csv "$GAMEDIR/main"/*.cfg
+rm "$GAMEDIR/mainta"/*.dll "$GAMEDIR/mainta"/*.csv "$GAMEDIR/mainta"/*.cfg
+rm "$GAMEDIR/maintt"/*.dll "$GAMEDIR/maintt"/*.csv "$GAMEDIR/maintt"/*.cfg
