@@ -3,9 +3,12 @@
 | :----------------- | :------------------------------ |
 | Left stick         | Forward / back / strafe    WASD |
 | Right stick        | Aim                       Mouse |
-| R2                 | Primary attack             Left |
-| L2                 | Secondary attack          Right |
-| L3                 | Run/walk                  Shift |
+| R1                 | Primary attack             Left |
+| L1                 | Secondary attack          Right |
+| L1                 | Previous weapon           Wheel |
+| R2                 | Next weapon               Wheel |
+| L3                 | Slow mouse movement             |
+| R3                 | Run/walk                  Shift |
 | A                  | Jump                      Space |
 | B                  | Crouch                     Ctrl |
 | X                  | Reload                        R |
@@ -14,11 +17,9 @@
 | D-pad down         | Use                           E |
 | D-pad left         | Quick save                   f5 |
 | D-pad right        | Quick load                   f9 |
-| L1                 | Previous weapon           Wheel |
-| R2                 | Next weapon               Wheel |
 
 ### Quick weapon selection:
-Hotkey plus:
+Hotkey (Function or Start) plus:
 | Button             | Action                          |
 | :----------------- | :------------------------------ |
 | Left stick up      | Pistol                        1 |

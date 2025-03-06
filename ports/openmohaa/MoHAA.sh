@@ -19,41 +19,47 @@ source $controlfolder/control.txt
 get_controls
 
 GAMEDIR=/$directory/ports/openmohaa
-CONFDIR="$GAMEDIR/conf/"
+CONFDIR="$GAMEDIR/conf"
+RUNDIR="$GAMEDIR/game"
 
-mkdir -p "$GAMEDIR/conf"
-
-cd $GAMEDIR
+cd "$GAMEDIR"
 
 > "$GAMEDIR/log.txt" && exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
-bind_directories ~/.openmohaa $GAMEDIR/conf
+bind_directories ~/.openmohaa "$CONFDIR"
+
+export LD_LIBRARY_PATH="$GAMEDIR/libs.${DEVICE_ARCH}:$LD_LIBRARY_PATH"
 
 export PATCHER_FILE="$GAMEDIR/tools/patchscript"
 export PATCHER_TIME="5-10 minutes"
 
-if [ ! -d "$GAMEDIR/main" ]; then
-    if [ -f "$controlfolder/utils/patcher.txt" ]; then
-        $ESUDO chmod a+x "$GAMEDIR/tools/patchscript"
-        source "$controlfolder/utils/patcher.txt"
-        $ESUDO kill -9 $(pidof gptokeyb)
-    else
-        echo "This port requires the latest version of PortMaster." > $CUR_TTY
-    fi
+DIRS=`ls -d "$RUNDIR"/main* 2>/dev/null`
+if [ -z "$DIRS" ]; then
+  if [ -f "$controlfolder/utils/patcher.txt" ]; then
+    $ESUDO chmod a+x "$GAMEDIR/tools/patchscript"
+    source "$controlfolder/utils/patcher.txt"
+    $ESUDO kill -9 $(pidof gptokeyb)
+  else
+    echo "This port requires the latest version of PortMaster." > $CUR_TTY
+  fi
 else
-    echo "Extraction process already completed. Skipping."
+  echo Found "$DIRS"
+  echo "Extraction process already completed. Skipping."
 fi
 
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
 # Run minilauncher
 export LD_LIBRARY_PATH="$GAMEDIR/launcher/libs":$LD_LIBRARY_PATH
-chmod +x ./love
-$GPTOKEYB "love" &
-./love launcher
+# Temporary fix for crossmix
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$controlfolder/runtimes/love_11.5/libs.aarch64":
+#chmod +x ./love
+#$GPTOKEYB "love" &
+#./love launcher
 
 # see what they selected in the minilauncher
-BINARY="$(cat selected_game.txt)"
+#BINARY="$(cat selected_game.txt)"
+BINARY="launch_openmohaa_base.arm64"
 
 # Cleanup launcher
 rm -rf "selected_game.txt"
@@ -79,15 +85,15 @@ else
   FULLSCREEN=0
 fi
 sed -i -E "s/.*r_fullscreen.*/set r_fullscreen \"$FULLSCREEN\"/" \
-  "$GAMEDIR"/conf/main*/configs/omconfig.cfg
+  "$CONFDIR"/main*/configs/omconfig.cfg
 
 # Scale screen to match device (needed for 720x720 displays)
 sed -i -E "s/.*r_mode.*/set r_mode \"-1\"/" \
-  "$GAMEDIR"/conf/main*/configs/omconfig.cfg
+  "$CONFDIR"/main*/configs/omconfig.cfg
 sed -i -E "s/.*r_customwidth.*/set r_customwidth \"$DISPLAY_WIDTH\"/" \
-  "$GAMEDIR"/conf/main*/configs/omconfig.cfg
+  "$CONFDIR"/main*/configs/omconfig.cfg
 sed -i -E "s/.*r_customheight.*/set r_customheight \"$DISPLAY_HEIGHT\"/" \
-  "$GAMEDIR"/conf/main*/configs/omconfig.cfg
+  "$CONFDIR"/main*/configs/omconfig.cfg
 
 # Calculate deadzone_scale based on DISPLAY_WIDTH
 value=$((4*DISPLAY_WIDTH/480))
@@ -95,10 +101,12 @@ echo "Setting deadzone_scale to $value"
 sed -i -E "s/(deadzone_scale) = .*/\1 = $value/g" \
   "$GAMEDIR/openmohaa.ini"
 
+cd "$RUNDIR"
+
 $GPTOKEYB2 "openmohaa.arm64" -c "./openmohaa.ini" &
 
-pm_platform_helper "$GAMEDIR/$BINARY" >/dev/null
+pm_platform_helper "$RUNDIR/$BINARY" >/dev/null
 
-./$BINARY --verbose
+./$BINARY
 
 pm_finish
