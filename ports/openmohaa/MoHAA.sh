@@ -103,7 +103,7 @@ sed -i -E "s/(deadzone_scale) = .*/\1 = $value/g" \
 
 cd "$RUNDIR"
 
-$GPTOKEYB2 "openmohaa.arm64" -c "./openmohaa.ini" &
+$GPTOKEYB2 "openmohaa.arm64" -c "$GAMEDIR/openmohaa.ini" &
 
 pm_platform_helper "$RUNDIR/$BINARY" >/dev/null
 

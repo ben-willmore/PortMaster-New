@@ -34,4 +34,4 @@ mv "$GAMEDIR"/app/main* "$RUNDIR"/
 rm -rf "$GAMEDIR"/tmp "$GAMEDIR/app
 
 # Delete installation files
-#rm "$GAMEDIR"/*.exe "$GAMEDIR"/*.bin
+rm "$GAMEDIR"/*.exe "$GAMEDIR"/*.bin
