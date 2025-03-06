@@ -58,7 +58,7 @@ function splashlib.new(init)
 
   self.background = init.background == nil and colors.bg or init.background
   self.delay_before = init.delay_before or 0.1
-  self.delay_after = init.delay_after or 2.6
+  self.delay_after = init.delay_after or 4.6
 
   -- radial mask shader
   self.maskshader = love.graphics.newShader((init.fill == "lighten" and "#define LIGHTEN" or "") .. [[
@@ -187,8 +187,6 @@ function splashlib.new(init)
 
     wait(self.delay_before)
 
-   
-
     -- hackety hack: execute timer to update shader every frame
     timer.every(0, function()
       safesend(self.maskshader, "radius", self.stripes.radius)
@@ -244,13 +242,11 @@ function splashlib.new(init)
     end)
 
 -- fade everything to transparent with a delay
-timer.after(2, function()
+timer.after(4, function()
   timer.tween(0.3, self, {alpha = 0})
   timer.tween(0.3, self.text, {alpha = 0})
   timer.tween(0.3, self.logo, {pen = 0})
 end)
-
-
 
     wait(self.delay_after)
 
@@ -281,9 +277,11 @@ function splashlib:draw()
 
   local text1 = self.text.obj  -- Assuming self.text.obj is the first text object
   local text2 = "This port is brought to you by beniamino"
+  local text3 = "Dulce et decorum est pro patria mori - Wilfred Owen"
 
   local text1Y = logoY - text1:getHeight() / 2 - (64 * scale_factor)
   local text2Y = logoY - text1:getHeight() / 2 + (64 * scale_factor)
+  local text3Y = logoY - text1:getHeight() / 2 - (324 * scale_factor)
 
   -- Clear background if necessary
   if self.background then
@@ -302,40 +300,8 @@ function splashlib:draw()
     love.graphics.translate(width / 2, height / 2)
 
     -- Draw your elements here, e.g., rotated rectangles
-    love.graphics.push()
-    love.graphics.rotate(self.stripes.rot)
-    love.graphics.setColor(colors.pink)
-    love.graphics.rectangle(
-      "fill",
-      self.stripes.offset - width, -self.stripes.height * scale_factor,
-      width * 2, self.stripes.height * scale_factor
-    )
-
-    love.graphics.setColor(colors.blue)
-    love.graphics.rectangle(
-      "line",
-      -width - self.stripes.offset, 0,
-      width * 2, self.stripes.height * scale_factor
-    )
-    love.graphics.rectangle(
-      "fill",
-      -width - self.stripes.offset, 0,
-      width * 2, self.stripes.height * scale_factor
-    )
-    love.graphics.pop()
-
-    -- Draw the heart sprite
-    love.graphics.setColor(1, 1, 1, self.heart.scale)
-    love.graphics.draw(
-      self.heart.sprite,
-      0, 0,
-      self.heart.rot,
-      self.heart.scale * (height / 600),
-      self.heart.scale * (height / 600),
-      40, 36
-    )
-
-     -- Draw the heart sprite
+     
+     -- Draw the boat sprite
     love.graphics.setColor(1, 1, 1, self.boat.scale)
     love.graphics.draw(
       self.boat.sprite,
@@ -353,6 +319,12 @@ function splashlib:draw()
   love.graphics.setShader(self.maskshader)
   love.graphics.draw(self.canvas, 0, 0)
   love.graphics.setShader()
+  
+  -- Draw text1 under the logo
+  love.graphics.push()
+  love.graphics.setShader(self.textshader)
+  love.graphics.draw(text1, (width / 2) - (text1:getWidth() / 2), text1Y)
+  love.graphics.pop()
 
   -- Draw text2 under the logo
   love.graphics.push()
@@ -360,22 +332,40 @@ function splashlib:draw()
   love.graphics.setColor(1, 1, 1, self.text.alpha)
 
   local text2Width = love.graphics.getFont():getWidth(text2)
-  love.graphics.print(
-    text2,
-    (width / 2) - (text2Width / 2),
-    text2Y  -- Adjusted Y position for text2
-  )
+  love.graphics.print(text2, (width / 2) - (text2Width / 2), text2Y)
   love.graphics.pop()
+  
+    -- Draw text3 above the logo
+    love.graphics.push()
+    love.graphics.setShader(self.textshader)
+    love.graphics.setColor(1, 1, 1, self.text.alpha)
 
-  -- Draw text1 above the logo
-  love.graphics.push()
-  love.graphics.setShader(self.textshader)
-  love.graphics.draw(
-    text1,
-    (width / 2) - (text1:getWidth() / 2),
-    text1Y   -- Adjusted Y position for text1
-  )
-  love.graphics.pop()
+    local maxWidth = width / 2  -- Half of the screen width
+    local lines = {}
+    local currentLine = ""
+    local font = love.graphics.getFont()
+
+    -- Split the text into lines based on maxWidth
+    for word in text3:gmatch("%S+") do
+        local testLine = currentLine .. " " .. word
+        if font:getWidth(testLine) <= maxWidth then
+            currentLine = testLine
+        else
+            table.insert(lines, currentLine)
+            currentLine = word
+        end
+    end
+
+    -- Add the last line
+    table.insert(lines, currentLine)
+
+    -- Print the wrapped text
+    local text3Y = 100  -- Adjust based on where you want the text
+    for i, line in ipairs(lines) do
+        love.graphics.print(line, (width / 2.1) - (font:getWidth(line) / 2), text3Y + (i - 1) * font:getHeight())
+    end
+
+    love.graphics.pop()
 
   -- Draw logo
   love.graphics.push()
@@ -393,12 +383,6 @@ function splashlib:draw()
   love.graphics.setShader()
   love.graphics.pop()
 end
-
-
-
-
-
-
 
 function splashlib:update(dt)
   timer.update(dt)
