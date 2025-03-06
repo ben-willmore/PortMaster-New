@@ -20,9 +20,6 @@ get_controls
 
 GAMEDIR=/$directory/ports/openmohaa
 CONFDIR="$GAMEDIR/conf/"
-BINARY=launch_openmohaa_base.arm64
-#BINARY=launch_openmohaa_breakthrough.arm64
-#BINARY=launch_openmohaa_spearhead.arm64
 
 mkdir -p "$GAMEDIR/conf"
 
@@ -48,6 +45,20 @@ else
 fi
 
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
+
+# Run minilauncher
+export LD_LIBRARY_PATH="$GAMEDIR/launcher/libs":$LD_LIBRARY_PATH
+chmod +x ./love
+$GPTOKEYB "love" &
+./love launcher
+
+# see what they selected in the minilauncher
+BINARY="$(cat selected_game.txt)"
+
+# Cleanup launcher
+rm -rf "selected_game.txt"
+$ESUDO kill -9 $(pidof gptokeyb)
+if [ -z "$BINARY" ]; then exit 1; fi
 
 if [ -f "${controlfolder}/libgl_${CFW_NAME}.txt" ]; then
   source "${controlfolder}/libgl_${CFW_NAME}.txt"
@@ -86,7 +97,7 @@ sed -i -E "s/(deadzone_scale) = .*/\1 = $value/g" \
 
 $GPTOKEYB2 "openmohaa.arm64" -c "./openmohaa.ini" &
 
-pm_platform_helper "$GAMEDIR/$BINARY"
+pm_platform_helper "$GAMEDIR/$BINARY" >/dev/null
 
 ./$BINARY --verbose
 
