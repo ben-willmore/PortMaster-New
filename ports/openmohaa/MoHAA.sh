@@ -47,8 +47,6 @@ else
     echo "Extraction process already completed. Skipping."
 fi
 
-# if successful, delete gog files?
-
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 
 if [ -f "${controlfolder}/libgl_${CFW_NAME}.txt" ]; then
@@ -56,9 +54,6 @@ if [ -f "${controlfolder}/libgl_${CFW_NAME}.txt" ]; then
 else
   source "${controlfolder}/libgl_default.txt"
 fi
-
-# delete unneeded files
-rm "$GAMEDIR"/*.dll "$GAMEDIR"/*.exe
 
 if [ "$LIBGL_FB" != "" ]; then
 export SDL_VIDEO_GL_DRIVER="$GAMEDIR/gl4es.aarch64/libGL.so.1"
@@ -73,6 +68,14 @@ else
   FULLSCREEN=0
 fi
 sed -i -E "s/.*r_fullscreen.*/set r_fullscreen \"$FULLSCREEN\"/" \
+  "$GAMEDIR"/conf/main*/configs/omconfig.cfg
+
+# Scale screen to match device (needed for 720x720 displays)
+sed -i -E "s/.*r_mode.*/set r_mode \"-1\"/" \
+  "$GAMEDIR"/conf/main*/configs/omconfig.cfg
+sed -i -E "s/.*r_customwidth.*/set r_customwidth \"$DISPLAY_WIDTH\"/" \
+  "$GAMEDIR"/conf/main*/configs/omconfig.cfg
+sed -i -E "s/.*r_customheight.*/set r_customheight \"$DISPLAY_HEIGHT\"/" \
   "$GAMEDIR"/conf/main*/configs/omconfig.cfg
 
 # Calculate deadzone_scale based on DISPLAY_WIDTH
