@@ -53,9 +53,9 @@ export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
 export LD_LIBRARY_PATH="$GAMEDIR/launcher/libs":$LD_LIBRARY_PATH
 # Temporary fix for crossmix
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$controlfolder/runtimes/love_11.5/libs.aarch64":
-#chmod +x ./love
-#$GPTOKEYB "love" &
-#./love launcher
+chmod +x ./love
+$GPTOKEYB "love" &
+./love launcher
 
 # see what they selected in the minilauncher
 #BINARY="$(cat selected_game.txt)"

@@ -48,7 +48,13 @@ local function safesend(shader, name, ...)
   end
 end
 
-
+math.randomseed(os.time())
+local quotes = {}
+quotes[1] = "Never in the field of human conflict was so much owed by so many to so few ~ Winston Churchill"
+quotes[2] = "Dulce et decorum est pro patria mori ~ Wilfred Owen"
+quotes[3] = "Our goal must be not peace in our time, but peace for all time ~ Harry S. Truman"
+quotes[4] = "Peace for our time ~ Neville Chamberlain"
+local text3 = quotes[ math.random( #quotes )]
 
 
 function splashlib.new(init)
@@ -277,7 +283,6 @@ function splashlib:draw()
 
   local text1 = self.text.obj  -- Assuming self.text.obj is the first text object
   local text2 = "This port is brought to you by beniamino"
-  local text3 = "Dulce et decorum est pro patria mori - Wilfred Owen"
 
   local text1Y = logoY - text1:getHeight() / 2 - (64 * scale_factor)
   local text2Y = logoY - text1:getHeight() / 2 + (64 * scale_factor)
