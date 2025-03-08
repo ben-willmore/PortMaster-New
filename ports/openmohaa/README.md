@@ -5,7 +5,7 @@
 | Right stick        | Aim                       Mouse |
 | R1                 | Primary attack             Left |
 | L1                 | Secondary attack          Right |
-| L1                 | Previous weapon           Wheel |
+| L2                 | Previous weapon           Wheel |
 | R2                 | Next weapon               Wheel |
 | L3                 | Slow mouse movement             |
 | R3                 | Run/walk                  Shift |
