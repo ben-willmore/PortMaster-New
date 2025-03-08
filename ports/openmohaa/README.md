@@ -4,11 +4,11 @@
 | Left stick         | Forward / back / strafe    WASD |
 | Right stick        | Aim                       Mouse |
 | R1                 | Primary attack             Left |
-| L1                 | Secondary attack          Right |
-| L2                 | Previous weapon           Wheel |
-| R2                 | Next weapon               Wheel |
-| L3                 | Slow mouse movement             |
-| R3                 | Run/walk                  Shift |
+| R2                 | Secondary attack          Right |
+| L1                 | Slow mouse / precise aim        |
+| Hotkey + L2        | Previous weapon           Wheel |
+| L2                 | Next weapon               Wheel |
+| L3/R3 (hold)       | Walk                      Shift |
 | A                  | Jump                      Space |
 | B                  | Crouch                     Ctrl |
 | X                  | Reload                        R |
