@@ -58,8 +58,7 @@ $GPTOKEYB "love" &
 ./love launcher
 
 # see what they selected in the minilauncher
-#BINARY="$(cat selected_game.txt)"
-BINARY="launch_openmohaa_base.arm64"
+BINARY="$(cat selected_game.txt)"
 
 # Cleanup launcher
 rm -rf "selected_game.txt"
