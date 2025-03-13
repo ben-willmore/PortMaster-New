@@ -26,7 +26,8 @@ jobs:
         run: |
           pwd
           ls
-#          . ./tools/build_port.txt ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
+          ls tools
+          . ./tools/build_port.txt ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
