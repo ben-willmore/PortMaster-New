@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR=$2
+
+cp $SRCDIR/perfect_dark/build/pd.arm64 $DESTDIR/
+
+cp $SRCDIR/doukutsu-rs/target/release/doukutsu-rs $DESTDIR/
