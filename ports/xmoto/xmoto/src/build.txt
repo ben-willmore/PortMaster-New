@@ -14,6 +14,6 @@ cd ../..
 
 # copy build products to location that is accessble outside container
 mkdir build-products
-cp xmoto-build:/usr/local/bin/xmoto ./build-products/
+cp /usr/local/bin/xmoto ./build-products/
 mkdir build-products/share
-cp -r xmoto-build:/usr/local/share/xmoto ./build-products/share/
+cp -r /usr/local/share/xmoto ./build-products/share/
