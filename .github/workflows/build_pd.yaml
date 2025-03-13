@@ -24,6 +24,8 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: Build port
         run: |
+          pwd
+          ls
           . ./tools/build_port.txt ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
       - name: Get current date
         id: date
