@@ -35,16 +35,31 @@ jobs:
           git pull origin
           git add ports/${{ env.PORT_DIR }}
           git commit -m "${{ env.SHORT_NAME }} ${{ env.BUILD_TYPE }} build ${{ steps.date.outputs.date }}"
-          git tag ${{ env.SHORT_NAME }}-${{ env.BUILD_TYPE }}-${{ steps.date.outputs.date }}
+          # git tag ${{ env.SHORT_NAME }}-${{ env.BUILD_TYPE }}-${{ steps.date.outputs.date }}
           git push origin
-          git push -f origin tag ${{ env.SHORT_NAME }}-${{ env.BUILD_TYPE }}-${{ steps.date.outputs.date }}
-      - name: Publish packaged artifacts
-        uses: actions/upload-artifact@v4
+          # git push --delete origin :refs/tags/${{ env.SHORT_NAME }}-${{ env.BUILD_TYPE }}-${{ steps.date.outputs.date }}
+
+      # - name: Publish packaged artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: ${{ env.SHORT_NAME }}-Portmaster
+      #     path: |
+      #       ports/${{ env.PORT_DIR }}/*.sh
+      #       ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
+      #     retention-days: 7
+      #     overwrite: true
+      #     include-hidden-files: true
+
+      - name: Create zip file
+        run: |
+          cd ports/${{ env.PORT_DIR }}
+          zip -r ${{ env.PORT_DIR }}.zip *.sh ${{ env.PORT_DIR }}
+      - name: Create release
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: ${{ env.SHORT_NAME }}-Portmaster
-          path: |
-            ports/${{ env.PORT_DIR }}/*.sh
-            ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
-          retention-days: 7
-          overwrite: true
-          include-hidden-files: true
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{ env.SHORT_NAME }}-${{ env.BUILD_TYPE }}-latest"
+          prerelease: true
+          title: "${{ env.SHORT_NAME }}-Portmaster-${{ steps.date.outputs.date }}"
+          files: |
+            ports/${{ env.PORT_DIR }}/*.zip
