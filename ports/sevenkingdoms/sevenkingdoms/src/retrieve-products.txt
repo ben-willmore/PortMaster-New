@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR=$2
+
+cp $SRCDIR/7kaa/src/7kaa $DESTDIR/

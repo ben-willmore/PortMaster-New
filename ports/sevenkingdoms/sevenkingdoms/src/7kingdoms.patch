@@ -1,0 +1,12 @@
+diff --git a/configure.ac b/configure.ac
+index 960b68cd..d480b784 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -42,7 +42,6 @@ AC_PROG_CC
+ AC_PROG_RANLIB
+ AC_PROG_LN_S
+ PKG_PROG_PKG_CONFIG
+-AX_CXX_COMPILE_STDCXX_11(,[mandatory])
+ save_CXXFLAGS="$CXXFLAGS"
+ 
+ GLOBAL_CFLAGS="-include \"\$(top_builddir)/include/config.h\""
