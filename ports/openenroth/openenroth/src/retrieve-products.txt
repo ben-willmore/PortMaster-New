@@ -3,7 +3,7 @@
 SRCDIR=$1
 DESTDIR=$2
 
-cd DESTDIR
+cd $DESTDIR
 
 cp $SRCDIR/OpenEnroth/build/src/Bin/OpenEnroth/OpenEnroth ./
 
