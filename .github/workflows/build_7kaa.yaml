@@ -1,4 +1,4 @@
-name: Build Build Seven Kingdoms
+name: Build Seven Kingdoms
 on:
   # Build on request
   workflow_dispatch
