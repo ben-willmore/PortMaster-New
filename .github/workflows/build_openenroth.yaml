@@ -20,6 +20,7 @@ jobs:
         with:
           sparse-checkout: |
             tools
+            SOURCE_SETUP.txt
             ports/${{ env.PORT_DIR }}
           sparse-checkout-cone-mode: false
       - name: Build port
