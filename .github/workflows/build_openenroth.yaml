@@ -19,13 +19,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
+            releases
             tools
             SOURCE_SETUP.txt
             ports/${{ env.PORT_DIR }}
           sparse-checkout-cone-mode: false
       - name: Build port
         run: |
-          . ./tools/build_port.txt ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
+          echo test > ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}/test.txt
+          # . ./tools/build_port.txt ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
       - name: Create zip file
         run: |
           cd ports/${{ env.PORT_DIR }}
