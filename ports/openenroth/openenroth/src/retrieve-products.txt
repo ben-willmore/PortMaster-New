@@ -3,10 +3,12 @@
 SRCDIR=$1
 DESTDIR=$2
 
-cp $SRCDIR/OpenEnroth/build/src/Bin/OpenEnroth/OpenEnroth $DESTDIR/
+cd DESTDIR
 
-rm -r $DESTDIR/libs.aarch64
-cp -r $SRCDIR/libs.aarch64 $DESTDIR/
+cp $SRCDIR/OpenEnroth/build/src/Bin/OpenEnroth/OpenEnroth ./
 
-rm -r $SRCDIR/tools/innoextract $DESTDIR/tools/libs.aarch64
-cp -r $SRCDIR/tools/* $DESTDIR/tools/
+rm -r ./libs.aarch64
+cp -r $SRCDIR/libs.aarch64 ./
+
+rm -r ./tools/innoextract ./tools/libs.aarch64
+cp -r $SRCDIR/tools/* ./tools/
