@@ -1,0 +1,41 @@
+# https://strategywiki.org/wiki/Medal_of_Honor:_Allied_Assault/Controls
+
+back = esc
+start = enter
+
+up = w
+left = a
+down = s
+right = d
+
+a = mouse_left     # Attack 1
+b = mouse_right    # Attack 2
+x = space          # Jump
+y = ctrl           # Crouch
+
+l1 = e         # Use
+l2 = r         # Reload
+r1 = shift     # Run/walk
+r2 = q         # Holster weapon
+
+l1_hk = \"
+l2_hk = \"
+r1_hk = \"
+r2_hk = \"
+
+#left_analog_up = mouse_movement_up
+#left_analog_down = mouse_movement_down
+#left_analog_left = mouse_movement_left
+#left_analog_right = mouse_movement_right
+
+right_analog_up = mouse_movement_up
+
+deadzone_triggers = 3000
+mouse_scale = 6114
+mouse_delay = 16
+mouse_slow_scale = 30
+
+deadzone_mode = axial
+deadzone = 1000
+deadzone_scale = 7
+deadzone_delay = 16

@@ -1,0 +1,11 @@
+tty console mode disabled
+--- Common Initialization ---
+OpenMoHAA 0.82.0-unstable+0.9538dcb6 linux-arm64 Mar 05 2025 UTC
+----- FS_Startup -----
+Current search path:
+/storage/.openmohaa/main
+/storage/roms/ports/openmohaa/main
+
+----------------------
+0 files in pk3 files
+Couldn't load default.cfg
