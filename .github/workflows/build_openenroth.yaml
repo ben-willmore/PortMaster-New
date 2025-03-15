@@ -37,6 +37,7 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Create git tag and upload
         run: |
+          mkdir runtimes # dummy directory
           ./tools/prepare_repo.sh
           git config --global user.email "${{ env.EMAIL }}"
           git config --global user.name "Github Action"
