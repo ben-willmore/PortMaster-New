@@ -15,19 +15,20 @@ To build this port:
 
 ```
 cd <portfolder>
-mkdir build && cd build
-cp ../src/* .
+cp -r src build
+cd build
 
 . ./docker-setup.txt port-build
 ```
 
 In the docker container:
-```
+``
+cd build
 . build.txt
 ```
 
 Back on the host machine:
 ```
 cd <portfolder>
-. ./build/retrieve-products ./build .
+. ./build/retrieve-products.txt ./build .
 ``
