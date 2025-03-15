@@ -27,11 +27,12 @@ jobs:
 
       - name: Build port
         run: |
-          . ./tools/build_port.txt ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
+          ./tools/build_port.txt ports/${{ env.PORT_DIR }}/${{ env.PORT_DIR }}
 
       - name: Create zip file
         run: |
           cd ports/${{ env.PORT_DIR }}
+          rm -rf ${{ env.PORT_DIR }}/*.part.[0-9]*
           zip -r ${{ env.PORT_DIR }}.zip *.sh ${{ env.PORT_DIR }}
           # Don't add this to repo
           echo ${{ env.PORT_DIR }}.zip >> .gitignore
