@@ -5,12 +5,10 @@ DESTDIR=$2
 
 cd $DESTDIR
 
-cp $SRCDIR/7kaa/src/7kaa ./
+cp $SRCDIR/7kaa/src/7kaa .
 
-cp -r $SRCDIR/7kaa/data ./data-tmp
-rm -r ./data-tmp/Makefile*
- 
-for dirname in ./data-tmp/*; do
-  rm -r ./`basename $dirname`
-  cp -r $dirname ./
+for dirname in `ls $SRCDIR/7kaa-share/`; do
+  echo $dirname
+  rm -r ./$dirname
+  cp -r $SRCDIR/7kaa-share/$dirname .
 done

@@ -17,17 +17,17 @@ cd <portfolder>
 cp -r src build
 cd build
 
-. ./docker-setup.txt port-build
+./docker-setup.txt port-build
 ```
 
 In the docker container:
 ``
 cd build
-. build.txt
+./build.txt
 ```
 
 Back on the host machine:
 ```
 cd <portfolder>
-. ./build/retrieve-products.txt ./build .
+./build/retrieve-products.txt ./build .
 ``
