@@ -3,12 +3,13 @@
 SRCDIR=$1
 DESTDIR=$2
 
-cp $SRCDIR/7kaa/src/7kaa $DESTDIR/
+cd $DESTDIR
 
-cp -r $SRCDIR/7kaa/data $SRCDIR/7kaa/data-copy
-rm -r $SRCDIR/7kaa/data-copy/Makefile*
+cp $SRCDIR/7kaa/src/7kaa ./
 
-for dirname in $SRCDIR/7kaa/data-copy/*; do
-  rm -r $DESTDIR/`basename $dirname`
-  cp -r $dirname $DESTDIR/
+rm $SRCDIR/7kaa/data/Makefile*
+ 
+for dirname in $SRCDIR/7kaa/data/*; do
+  rm -r ./`basename $dirname`
+  cp -r $dirname ./
 done
