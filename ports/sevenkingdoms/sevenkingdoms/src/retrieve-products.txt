@@ -7,9 +7,10 @@ cd $DESTDIR
 
 cp $SRCDIR/7kaa/src/7kaa ./
 
-rm $SRCDIR/7kaa/data/Makefile*
+cp -r $SRCDIR/7kaa/data ./data-tmp
+rm -r ./data-tmp/Makefile*
  
-for dirname in $SRCDIR/7kaa/data/*; do
+for dirname in ./data-tmp/*; do
   rm -r ./`basename $dirname`
   cp -r $dirname ./
 done
