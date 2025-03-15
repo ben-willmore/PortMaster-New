@@ -7,11 +7,9 @@ Enable Github Actions for your fork
 
 Go to the Github Actions tab and choose `Build <portname>`
 
-When complete, the new files will be committed to your fork, and a .zip file of the port will be available under Release.
+When complete, the new files will be committed to your fork, and a .zip file of the port will be available under Releases.
 
 ### On a machine with docker
-To build this port:
-
 ```
 cd <portfolder>
 cp -r src build
