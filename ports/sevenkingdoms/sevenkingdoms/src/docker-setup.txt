@@ -3,11 +3,13 @@
 # run with ./docker-setup.txt <dockername>
 # where <dockername> is whatever you want the image and container to be called
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 NAME=$1
 ARCH=aarch64
-RELEASE=focal
+RELEASE=`grep FROM $SCRIPT_DIR/Dockerfile |  awk  '{print $2}'`
 
-docker pull --platform linux/${ARCH} ubuntu:${RELEASE}
+docker pull --platform linux/${ARCH} ${RELEASE}
 docker build --platform linux/${ARCH} -t ${NAME} .
 
 if tty -s; then

@@ -7,3 +7,4 @@ patch -p1 < ../7kingdoms.patch
 ./autogen.sh
 ./configure
 make -j8
+
