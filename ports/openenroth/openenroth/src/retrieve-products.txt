@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR=$2
+
+cp $SRCDIR/OpenEnroth/build/src/Bin/OpenEnroth/OpenEnroth $DESTDIR/
+cp $SRCDIR/libs.aarch64 .
+
+rm -r $DESTDIR/tools/innoextract $DESTDIR/tools/libs.aarch64
+cp $SRCDIR/tools/* $DESTDIR/tools/
