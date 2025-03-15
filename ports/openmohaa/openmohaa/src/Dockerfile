@@ -10,10 +10,6 @@ RUN apt install -y --no-install-recommends \
 RUN apt install -y --no-install-recommends \
         clang-18
 
-# or, newer version of gcc
-# RUN apt install -y --no-install-recommends \
-#         gcc-10 g++-10
-
 RUN apt install -y build-essential git make \
         libsdl2-dev libopenal-dev flex bison \
         libssl-dev lld ninja-build

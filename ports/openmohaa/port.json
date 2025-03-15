@@ -11,7 +11,8 @@
   "attr": {
     "title": "Medal of Honor: Allied Assault",
     "porter": [
-      "beniamino"
+      "beniamino",
+      "Jeod"
     ],
     "desc": "Medal of Honor: Allied Assault War Chest is a treasure trove of historical battles presented as a gritty World War II action FPS. Call in artillery and air strikes against the opposing forces and keep your squad away from the jaws of defeat and despair. Drive various assault vehicles, always charging onwards to victory. Uncle Sam wants YOU!\n\nOpenMoHAA is an open-source version of MoHAA that is fully compatible with both the original game and the Spearhead and Breakthrough expansions, which are all included in the War Chest release.",
     "desc_md": "Medal of Honor: Allied Assault War Chest is a treasure trove of historical battles presented as a gritty World War II action FPS. Call in artillery and air strikes against the opposing forces and keep your squad away from the jaws of defeat and despair. Drive various assault vehicles, always charging onwards to victory. Uncle Sam wants YOU!\n\n[OpenMoHAA](https://github.com/openmoh/openmohaa) is an open-source version of MoHAA that is fully compatible with both the original game and the Spearhead and Breakthrough expansions, which are all included in the War Chest release.",
@@ -36,7 +37,9 @@
       }
     ],
     "availability": "paid",
-    "reqs": [],
+    "reqs": [
+      "power"     
+    ],
     "arch": [
       "aarch64"
     ],

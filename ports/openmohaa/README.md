@@ -35,6 +35,8 @@ Thanks to Electronic Arts for the original games, and to the [OpenMoHAA](https:/
 
 Thanks to ptitSeb for the [gl4es](https://github.com/ptitSeb/gl4es) library, and to Jeod for the custom game launcher.
 
+The game was compiled by beniamino and the launcher was created by Jeod.
+
 ## Port details
 This is an arm64 build of the unmodified [source code](https://github.com/openmoh/openmohaa/). Graphics settings have been reduced for good performance on low-spec devices, but can be increased using the in-game options.
 

@@ -86,16 +86,18 @@ fi
 sed -i -E "s/.*r_fullscreen.*/set r_fullscreen \"$FULLSCREEN\"/" \
   "$CONFDIR"/main*/configs/omconfig.cfg
 
-# Scale screen to match device (needed for 720x720 displays)
+# Scale screen to match device aspect ratio (640xY)
+WIDTH=640
+HEIGHT=$((WIDTH*ASPECT_Y/ASPECT_X))
 sed -i -E "s/.*r_mode.*/set r_mode \"-1\"/" \
   "$CONFDIR"/main*/configs/omconfig.cfg
-sed -i -E "s/.*r_customwidth.*/set r_customwidth \"$DISPLAY_WIDTH\"/" \
+sed -i -E "s/.*r_customwidth.*/set r_customwidth \"$WIDTH\"/" \
   "$CONFDIR"/main*/configs/omconfig.cfg
-sed -i -E "s/.*r_customheight.*/set r_customheight \"$DISPLAY_HEIGHT\"/" \
+sed -i -E "s/.*r_customheight.*/set r_customheight \"$HEIGHT\"/" \
   "$CONFDIR"/main*/configs/omconfig.cfg
 
 # Calculate deadzone_scale based on DISPLAY_WIDTH
-value=$((4*DISPLAY_WIDTH/480))
+value=$((4*$WIDTH/480))
 echo "Setting deadzone_scale to $value"
 sed -i -E "s/(deadzone_scale) = .*/\1 = $value/g" \
   "$GAMEDIR/openmohaa.ini"
