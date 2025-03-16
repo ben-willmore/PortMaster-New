@@ -1,47 +1,31 @@
-git clone https://github.com/libsdl-org/SDL.git
-cd SDL
-git checkout release-2.30.9
-mkdir -p build-focal-2.30.9
-cd build-focal-2.30.9
-cmake ..
-make -j8
-make install
-cd ../..
+## Building instructions
 
-git clone https://github.com/libsdl-org/SDL_image.git
-cd SDL_image
-git checkout release-2.6.3
-mkdir -p build-focal-2.6.3
-cd build-focal-2.6.3
-cmake ..
-make -j8
-make install
-cd ../..
+### Using Github Actions
+Fork `https://github.com/ben-willmore/PortMaster-New/`
 
-# old version doesn't work with cmake
-git clone https://github.com/libsdl-org/SDL_mixer.git
-cd SDL_mixer
-git checkout release-2.0.4
-./configure
-make -j8
-make install
-cd ..
+Enable Github Actions for your fork
 
-git clone https://github.com/verhoevenv/OpenNotrium.git
+Go to the Github Actions tab and choose `Build <portname>`
 
-cd OpenNotrium
-patch -p1 < ../notrium.fixes.patch
+When complete, the new files will be committed to your fork, and a .zip file of the port will be available under Releases.
 
-mkdir -p build
+### On a machine with docker
+```
+cd <portfolder>
+cp -r src build
 cd build
 
-cmake ..
-make -j8
+./docker-setup.txt port-build
+```
 
-cd ..
-mkdir opennotrium
-cp build/OpenNotrium opennotrium
-cp -r runtime_files/* opennotrium
+In the docker container:
+``
+cd build
+./build.txt
+```
 
-# retrieve build products on host machine
-docker cp notrium-build:/root/OpenNotrium/opennotrium .
+Back on the host machine:
+```
+cd <portfolder>
+./build/retrieve-products.txt ./build .
+``
