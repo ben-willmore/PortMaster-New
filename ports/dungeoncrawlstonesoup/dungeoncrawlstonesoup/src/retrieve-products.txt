@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo $1
+echo $2
+
+SRCDIR=$1
+DESTDIR=$2
+
 cd $DESTDIR
 
 cp $SRCDIR/crawl/crawl-ref/source/crawl ./
