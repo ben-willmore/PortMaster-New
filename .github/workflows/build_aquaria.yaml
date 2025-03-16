@@ -1,0 +1,16 @@
+name: Build Aquaria
+on:
+  # Build on request
+  workflow_dispatch
+#  schedule:
+#    - cron:  '5 4 * * *'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build_port.yaml
+    with:
+      port-name: "Aquaria"
+      short-name: Aquaria
+      port-dir: aquaria
+      build-type: release
+      email: ben@willmore.eu

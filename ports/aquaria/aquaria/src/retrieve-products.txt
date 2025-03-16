@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR=$2
+
+cd $DESTDIR
+
+cp $SRCDIR/Aquaria/build-aquaria/aquaria ./aquaria.aarch64
