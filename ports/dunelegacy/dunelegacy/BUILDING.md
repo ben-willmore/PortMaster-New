@@ -1,26 +1,31 @@
-git clone https://git.code.sf.net/p/dunelegacy/code dunelegacy-code
-cd dunelegacy-code
+## Building instructions
 
-# vanilla (rocknix only)
-patch -p1 < ../dunelegacy.flicker.patch
-patch -p1 < ../dunelegacy.path.patch
+### Using Github Actions
+Fork `https://github.com/ben-willmore/PortMaster-New/`
 
-autoreconf -fi
-./configure
-make -j8
-make install
-make clean
+Enable Github Actions for your fork
 
-# sim cursor
-patch -p1 < ../dunelegacy.cursor.patch
-autoreconf -fi
-./configure
-make -j8
+Go to the Github Actions tab and choose `Build <portname>`
 
-# retrieve build products on host machine
-docker cp dune2-build:/usr/local/share/dunelegacy ./data
+When complete, the new files will be committed to your fork, and a .zip file of the port will be available under Releases.
 
-mkdir vanilla
-docker cp dune2-build:/usr/local/bin/dunelegacy ./vanilla
-mkdir sim-cursor
-docker cp dune2-build:/root/dunelegacy-code/src/dunelegacy ./sim-cursor
+### On a machine with docker
+```
+cd <portfolder>
+cp -r src build
+cd build
+
+./docker-setup.txt port-build
+```
+
+In the docker container:
+``
+cd build
+./build.txt
+```
+
+Back on the host machine:
+```
+cd <portfolder>
+./build/retrieve-products.txt ./build .
+``
