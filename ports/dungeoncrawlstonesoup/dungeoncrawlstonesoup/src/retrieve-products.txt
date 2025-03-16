@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd $DESTDIR
+
+cp $SRCDIR/crawl/crawl-ref/source/crawl ./
+
+rm -r ./libs
+cp -r $SRCDIR/libs ./
+
+rm -r ./dat
+cp -r $SRCDIR/crawl/crawl-ref/source/dat ./
+
+rm -r ./docs/*
+cp $SRCDIR/crawl/crawl-ref/docs/*.txt ./docs/
