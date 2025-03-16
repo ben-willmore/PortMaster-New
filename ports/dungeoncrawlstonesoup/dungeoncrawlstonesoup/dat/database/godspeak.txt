@@ -133,6 +133,10 @@ Xom [offers|fetches] you some snacks.
 
 Xom prepares a banquet formed from your trail of carnage through the Dungeon.
 %%%%
+Xom scenery cache of baked goods
+
+Xom offers some snacks, fresh out of the oven.
+%%%%
 Xom scenery enter_abyss
 
 Xom suggests a refreshing change of pace.
@@ -235,6 +239,12 @@ Xom feature blood
 @Xom feature shallow water@
 
 @The_feature@ briefly coagulates.
+%%%%
+Xom feature eyes
+
+@The_feature@ looks at you curiously.
+
+@The_feature@ looks right through you.
 %%%%
 Xom feature dry
 
@@ -855,6 +865,15 @@ Xom touches your surroundings.
 
 @Xom good monster polymorph@
 %%%%
+Xom lights up webs
+
+Xom [gleefully|mirthfully] wrecks local arachnid artwork.
+
+The light of Xom [brushes upon|sweeps through] your surroundings.
+
+w:1
+@Xom fake destruction@
+%%%%
 Xom destruction
 
 "Burn, baby, burn!"
@@ -943,6 +962,16 @@ Xom good enchant monster
 Xom bad enchant monster
 
 @Xom good enchant monster@
+%%%%
+Xom good hyper enchant monster
+
+"Witness the rise of a true [hero|champion]!"
+
+Xom demands grand glory in combat!
+
+Xom's power very briefly touches upon your surroundings.
+
+You hear Xom's avuncular cackling.
 %%%%
 Xom mass charm
 
@@ -1465,6 +1494,8 @@ a delicious
 a mouldy
 
 a fake
+
+a moist
 
 w:2
 a kilgore
