@@ -19,7 +19,7 @@ cd build
 ```
 
 In the docker container:
-``
+```
 cd build
 ./build.txt
 ```
@@ -28,4 +28,4 @@ Back on the host machine:
 ```
 cd <portfolder>
 ./build/retrieve-products.txt ./build .
-``
+```
