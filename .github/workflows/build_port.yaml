@@ -62,8 +62,8 @@ jobs:
           git config --global user.name "Github Action"
           git pull origin
           git add ports/${{ inputs.port-dir }}
-          git commit -m "${{ inputs.short-name }} ${{ inputs.build-type }} build ${{ steps.date.outputs.date }}"
-          git push origin
+          git commit -m "${{ inputs.short-name }} ${{ inputs.build-type }} build ${{ steps.date.outputs.date }}" || true
+          git push origin || true
 
       - name: Create release
         uses: "marvinpinto/action-automatic-releases@latest"
