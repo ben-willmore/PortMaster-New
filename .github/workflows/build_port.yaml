@@ -63,7 +63,7 @@ jobs:
           git pull origin
           git add ports/${{ inputs.port-dir }}
           git commit -m "${{ inputs.short-name }} ${{ inputs.build-type }} build ${{ steps.date.outputs.date }}" || true
-          git push origin || true
+          git push origin
 
       - name: Create release
         uses: "marvinpinto/action-automatic-releases@latest"
