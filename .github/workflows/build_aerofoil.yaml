@@ -1,0 +1,16 @@
+name: Build Aerofoil
+on:
+  # Build on request
+  workflow_dispatch
+#  schedule:
+#    - cron:  '5 4 * * *'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build_port.yaml
+    with:
+      port-name: "Aerofoil"
+      short-name: Aerofoil
+      port-dir: aerofoil
+      build-type: release
+      email: ben@willmore.eu

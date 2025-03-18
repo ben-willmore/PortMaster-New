@@ -1,16 +1,31 @@
-# ubuntu 20.04
-# apt install libsdl2-dev libfreetype-dev
-# update cmake
+## Building instructions
 
-git clone https://github.com/elasota/Aerofoil
-cd Aerofoil
-patch -p1 < aerofoil.patch
-mkdir build
+### On a machine with docker
+```
+cd <portfolder>
+cp -r src build
 cd build
-cmake -DCMAKE_EXE_LINKER_FLAGS=-Wl,--copy-dt-needed-entries ..
-make -j8
 
-# retrieve build products
-docker cp aerofoil-build:/Aerofoil/build/AerofoilX .
-docker cp aerofoil-build:/Aerofoil/build/Packaged .
+./docker-setup.txt port-build
+```
 
+In the docker container:
+```
+cd build
+./build.txt
+```
+
+Back on the host machine:
+```
+cd <portfolder>
+./build/retrieve-products.txt ./build .
+```
+
+### Using Github Actions
+Fork `https://github.com/ben-willmore/PortMaster-New/`
+
+Enable Github Actions for your fork
+
+Go to the Github Actions tab and choose `Build <portname>`
+
+When complete, the new files will be committed to your fork, and a .zip file of the port will be available under Releases.
