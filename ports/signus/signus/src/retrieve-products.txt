@@ -1,0 +1,15 @@
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR=$2
+
+cd $DESTDIR
+
+# retrieve build products on host machine
+rm -r vanilla sim-cursor data
+
+cp -r $SRCDIR/signus/signus/vanilla ./
+cp -r $SRCDIR/signus/signus/sim-cursor ./
+
+cp -r $SRCDIR/signus-products/data ./
+cp -r $SRCDIR/signus/signus/etc/default_signus.ini ./data/

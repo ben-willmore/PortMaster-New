@@ -1,43 +1,31 @@
-# autoconf
-wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.72.tar.xz
-tar xf autoconf-2.72.tar.xz
-cd autoconf-2.72
-./configure
-make -j8
-make install
-cd ..
+## Building instructions
 
-# signus
-git clone https://github.com/signus-game/signus
+### On a machine with docker
+```
+cd <portfolder>
+cp -r src build
+cd build
 
-# vanilla
-cd signus
-patch -p1 < ../signus.allowkill.patch
+./docker-setup.txt port-build
+```
 
-cd signus
-./bootstrap
-./configure
-make -j8
-mkdir vanilla
-mv src/signus vanilla/
-cd ..
+In the docker container:
+```
+cd build
+./build.txt
+```
 
-patch -p1 < ../signus.cursor.patch
-cd signus
-make -j8
-mkdir sim-cursor
-mv src/signus sim-cursor/
-cd ..
+Back on the host machine:
+```
+cd <portfolder>
+./build/retrieve-products.txt ./build .
+```
 
+### Using Github Actions
+Fork `https://github.com/ben-willmore/PortMaster-New/`
 
-cd ../signus-data/
-./bootstrap
-./configure
-make -j8
-make install
+Enable Github Actions for your fork
 
-# retrieve build products on host machine
-docker cp signus-build:/root/signus/signus/vanilla .
-docker cp signus-build:/root/signus/signus/sim-cursor .
-docker cp signus-build:/usr/local/share/signus/1.96 ./data
-docker cp signus-build:/root/signus/signus/etc/default_signus.ini ./data/
+Go to the Github Actions tab and choose `Build <portname>`
+
+When complete, the new files will be committed to your fork, and a .zip file of the port will be available under Releases.
