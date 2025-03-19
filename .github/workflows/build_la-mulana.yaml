@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build_port.yaml
+    uses: ./.github/workflows/build_port_x64.yaml
     with:
       port-name: "La-Mulana"
       short-name: La-Mulana
