@@ -1,12 +1,15 @@
 ## PortMaster
 
+[![Build Aerofoil](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_aerofoil.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_aerofoil.yaml)
 [![Build Aquaria](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_aquaria.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_aquaria.yaml)
 [![Build doukutsu-rs](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_doukutsu_rs.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_doukutsu_rs.yaml)
 [![Build Dune Legacy](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_dunelegacy.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_dunelegacy.yaml)
 [![Build Dungeon Crawl Stone Soup](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_dcss.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_dcss.yaml)
+[![Build La-Mulana](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_la-mulana.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_la-mulana.yaml)
 [![Build OpenEnroth](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_openenroth.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_openenroth.yaml)
 [![Build OpenMoHAA](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_openmohaa.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_openmohaa.yaml)
 [![Build OpenNotrium](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_opennotrium.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_opennotrium.yaml)
 [![Build Perfect Dark](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_pd.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_pd.yaml)
 [![Build Seven Kingdoms](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_7kaa.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_7kaa.yaml)
+[![Build Signus](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_signus.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_signus.yaml)
 [![Build Xmoto](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_xmoto.yaml/badge.svg)](https://github.com/ben-willmore/PortMaster-New/actions/workflows/build_xmoto.yaml)
