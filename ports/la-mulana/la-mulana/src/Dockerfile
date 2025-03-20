@@ -7,7 +7,7 @@ RUN dpkg --add-architecture i386
 RUN apt update
 
 RUN apt install -y --no-install-recommends \
-  ca-certificates apt-utils nano wget git
+  ca-certificates apt-utils nano wget git zip
 
 RUN apt install -y \
   libsdl2-dev:i386 libconfig-dev:i386
