@@ -1,18 +1,19 @@
-FROM debian:bullseye
+FROM ubuntu:focal
 
 ENV DEBIAN_FRONTEND=noninteractive
+
+RUN dpkg --add-architecture i386
 
 RUN apt update
 
 RUN apt install -y --no-install-recommends \
-        ca-certificates apt-utils nano wget \
-        lsb-release
-
-RUN apt install -y --no-install-recommends \
-        build-essential
+  ca-certificates apt-utils nano wget git
 
 RUN apt install -y \
-  libsdl2-dev libconfig-dev zip
+  libsdl2-dev:i386 libconfig-dev:i386
+
+RUN apt install -y \
+  gcc-multilib g++-multilib
 
 WORKDIR "/root"
 
