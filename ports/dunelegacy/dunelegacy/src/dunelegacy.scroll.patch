@@ -1,0 +1,11 @@
+--- src/main.cpp.orig	2025-03-21 12:03:50
++++ src/main.cpp	2025-03-21 12:04:01
+@@ -221,7 +221,7 @@
+                                 "Play Intro = false          # Play the intro when starting the game?\n"
+                                 "Player Name = %s            # The name of the player\n"
+                                 "Language = %s               # en = English, fr = French, de = German\n"
+-                                "Scroll Speed = 50           # Amount to scroll the map when the cursor is near the screen border\n"
++                                "Scroll Speed = 20           # Amount to scroll the map when the cursor is near the screen border\n"
+                                 "Show Tutorial Hints = true  # Show tutorial hints during the game\n"
+                                 "\n"
+                                 "[Video]\n"
