@@ -1,26 +1,22 @@
 ## Controls
 The Dune Legacy manual is available [here](https://dunelegacy.sourceforge.net/website/manual.html).
 
-do we need right mouse button???
-
 | Button            | Action                                      |
 | :---------------- | :------------------------------------------ |
 | D-pad             | Move                                        |
 | Left stick        | Mouse                                       |
-| A                 | Left mouse button                           |
-| B                 | Order unit to move to position            M |
-| X                 | Order unit to move to attack position     A |
+| A                 | Select                    Left mouse button |
+| B                 | Order unit to move to attack position     A |
+| X                 | Order unit to move to position            M |
 | Y                 | Order unit to move to capture structure   C |
 | L1                | Repair selected structure                 R |
 | L2                | Return selected harvester                 H |
 | R1                | Next construction yard                    G |
 | R2                | Next factory / other builder              F |
+| R3                | Mouse slow                                  |
 | Right stick up    | Upgrade structure                         U |
 | Right stick down  | Request carryall drop                     D |
-| Right stick right | Place structure                           P |
-| Right stick left  | ???                                       P |
-
-mouse slow? right mouse button??
+| Right stick left  | Place structure                           P |
 
 With function key held:
 
