@@ -19,7 +19,7 @@ cp /usr/local/bin/dunelegacy vanilla/
 # sim cursor
 cd dunelegacy-code
 patch -p1 < ../dunelegacy.cursor.patch
-
+patch -p0 < ../dunelegacy.cursor.aeolusux.patch
 autoreconf -fi
 ./configure
 make -j8
