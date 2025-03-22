@@ -49,11 +49,11 @@ fi
 
 # Calculate deadzone_scale based on DISPLAY_WIDTH
 value=$((4*DISPLAY_WIDTH/480))
-echo "Setting dpad_mouse_step and deadzone_scale to $value"
-sed -i -E "s/(dpad_mouse_step|deadzone_scale) = .*/\1 = $value/g" \
-  "$GAMEDIR"/$BINARY.gptk*
+echo "Setting deadzone_scale to $value"
+sed -i -E "s/.*deadzone_scale.*/deadzone_scale =  $value/g" \
+  "$GAMEDIR"/$BINARY.ini*
 
-$GPTOKEYB "$BINARY" -c "$BINARY.gptk" &
+$GPTOKEYB2 "$BINARY" -c "$BINARY.ini.$ANALOG_STICKS" &
 
 pm_platform_helper "$GAMEDIR/$BINARY"
 

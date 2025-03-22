@@ -1,9 +1,10 @@
 ## Controls
 The Dune Legacy manual is available [here](https://dunelegacy.sourceforge.net/website/manual.html).
 
+With two analog sticks:
 | Button            | Action                                      |
 | :---------------- | :------------------------------------------ |
-| D-pad             | Move                                        |
+| D-pad             | Scroll screen                               |
 | Left stick        | Mouse                                       |
 | A                 | Select                    Left mouse button |
 | B                 | Order unit to move to attack position     A |
@@ -25,6 +26,8 @@ With function key held:
 | L1                | Toggle game time display                  T |
 | R1                | Skip 10 seconds                          F4 |
 | R2                | Skip 2 minutes                           F6 |
+
+On devices with one analog stick, use the D-pad instead of the right stick. Scroll screen by moving the mouse to the edge.
 
 ## Acknowledgements
 Thanks to the original Dune II teams at Westwood Studios and Virgin Games for the original game, and to the Dune Legacy team for the excellent reimplementation.
