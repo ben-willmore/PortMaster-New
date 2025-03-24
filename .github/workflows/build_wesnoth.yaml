@@ -1,0 +1,16 @@
+name: Build Battle for Wesnoth
+on:
+  # Build on request
+  workflow_dispatch
+#  schedule:
+#    - cron:  '5 4 * * *'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build_port.yaml
+    with:
+      port-name: "Battle for Wesnoth"
+      short-name: Wesnoth
+      port-dir: wesnoth
+      build-type: release
+      email: ben@willmore.eu
