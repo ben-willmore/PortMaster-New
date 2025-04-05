@@ -1,0 +1,21 @@
+git clone https://github.com/libsdl-org/SDL
+cd SDL
+git checkout release-2.26.2
+mkdir build-aquaria
+cd build-aquaria
+cmake ..
+make -j8
+cmake --install . --prefix /usr
+
+cd ../..
+
+git clone https://github.com/AquariaOSE/Aquaria.git
+cd Aquaria
+wget https://raw.githubusercontent.com/ben-willmore/PortMaster-New/refs/heads/aquaria/ports/aquaria/aquaria/src/aquaria.patch
+patch -p1 < aquaria.patch
+mkdir build-aquaria
+cd build-aquaria
+cmake .. -DAQUARIA_USE_SDL2=ON
+make
+
+cd ../..

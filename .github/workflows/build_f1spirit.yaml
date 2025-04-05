@@ -1,0 +1,16 @@
+name: Build F1Spirit
+on:
+  # Build on request
+  workflow_dispatch
+#  schedule:
+#    - cron:  '5 4 * * *'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build_port.yaml
+    with:
+      port-name: "F1Spirit"
+      short-name: F1Spirit
+      port-dir: f1spirit
+      build-type: release
+      email: ben@willmore.eu

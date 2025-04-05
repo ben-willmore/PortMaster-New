@@ -1,0 +1,15 @@
+git clone https://github.com/libsdl-org/SDL.git
+cd SDL
+git checkout release-2.26.2
+mkdir build && cd build
+CC=clang-18 CXX=clang++-18 cmake ..
+make -j8
+make install
+cd ../..
+
+git clone https://github.com/fgsfdsfgs/perfect_dark.git
+cd perfect_dark
+mkdir build && cd build
+CC=clang-18 CXX=clang++-18 cmake ..
+make -j8
+cd ../..

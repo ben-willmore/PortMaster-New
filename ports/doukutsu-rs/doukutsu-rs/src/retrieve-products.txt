@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR=$2
+
+cp $SRCDIR/doukutsu-rs/target/release/doukutsu-rs $DESTDIR/

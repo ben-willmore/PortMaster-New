@@ -1,0 +1,16 @@
+name: Build doukutsu-rs
+on:
+  # Build on request
+  workflow_dispatch
+#  schedule:
+#    - cron:  '5 4 * * *'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build_port.yaml
+    with:
+      port-name: "Doukutsu-rs"
+      short-name: Doukutsu-rs
+      port-dir: doukutsu-rs
+      build-type: release
+      email: ben@willmore.eu

@@ -18,4 +18,6 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.31.3/cmake-3.31.3
 RUN chmod a+x ./cmake-3.31.3-linux-`uname -m`.sh
 RUN ./cmake-3.31.3-linux-`uname -m`.sh --prefix=/usr/local --exclude-subdir --skip-license
 
+WORKDIR "/root"
+
 CMD ["bash"]

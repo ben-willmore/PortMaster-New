@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR=$2
+
+cd $DESTDIR
+
+# retrieve build products
+cp $SRCDIR/Aerofoil/build/AerofoilX ./
+rm -r ./Packaged
+cp -r $SRCDIR/Aerofoil/build/Packaged ./

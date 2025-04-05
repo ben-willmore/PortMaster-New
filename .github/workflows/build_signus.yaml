@@ -1,0 +1,16 @@
+name: Build Signus
+on:
+  # Build on request
+  workflow_dispatch
+#  schedule:
+#    - cron:  '5 4 * * *'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build_port.yaml
+    with:
+      port-name: "Signus"
+      short-name: Signus
+      port-dir: signus
+      build-type: release
+      email: ben@willmore.eu

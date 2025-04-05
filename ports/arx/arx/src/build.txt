@@ -1,0 +1,34 @@
+#!/bin/bash
+
+git clone https://github.com/arx/ArxLibertatis.git
+cd ArxLibertatis
+
+mkdir build-arx
+cd build-arx
+
+wget https://arx-libertatis.org/files/data/arx-libertatis-data-1.tar.xz
+tar xf arx-libertatis-data-1.tar.xz
+
+patch -p1 < ../arx.gles.patch
+
+cmake ..
+make -j8
+
+make install
+
+cd ../../
+
+mkdir install && cd install
+
+mkdir bin
+
+# extra binaries are probably unneeded
+# cp /usr/local/bin/arx bin/
+cp /usr/local/bin/arx* bin/
+cp /usr/local/libexec/arxtool bin/
+
+mkdir lib
+cp /usr/local/lib/libArx*  lib/
+
+cp -r /usr/local/share/games/arx share-games-arx
+

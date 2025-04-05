@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SRCDIR=$1
+DESTDIR=$2
+
+cp $SRCDIR/build-products/xmoto $DESTDIR/
+
+rm -r $DESTDIR/share
+cp -r $SRCDIR/build-products/share $DESTDIR/

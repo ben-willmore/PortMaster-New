@@ -1,0 +1,16 @@
+name: Build Dune Legacy
+on:
+  # Build on request
+  workflow_dispatch
+#  schedule:
+#    - cron:  '5 4 * * *'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build_port.yaml
+    with:
+      port-name: "Dune Legacy"
+      short-name: DuneLegacy
+      port-dir: dunelegacy
+      build-type: release
+      email: ben@willmore.eu
