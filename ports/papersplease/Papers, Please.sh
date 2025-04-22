@@ -67,8 +67,6 @@ fi
 # the default pulseaudio backend doesn't always work on AmberELEC
 if [[ "$CFW_NAME" = "AmberELEC" ]]; then
   audio_backend=alsa
-else
-  audio_backend=pulse
 fi
 
 $GPTOKEYB2 "$BINARY" -c "$GAMEDIR/$BINARY.ini" &
