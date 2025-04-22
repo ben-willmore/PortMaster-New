@@ -27,8 +27,8 @@ cd "$GAMEDIR"
 > "$GAMEDIR/log.txt" && exec > >(tee "$GAMEDIR/log.txt") 2>&1
 
 # Tidy up gamedata
-find "$GAMEDIR/gamedata" -name "*.sh" | xargs rm
-$ESUDO chmod a+x "$GAMEDIR/gamedata/PapersPlease"
+find "$DATADIR" -name "*.sh" | xargs rm
+$ESUDO chmod a+x "$DATADIR/PapersPlease"
 
 # Create XDG dirs
 CONFDIR="$GAMEDIR/conf/config"
