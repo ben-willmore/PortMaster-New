@@ -11,24 +11,19 @@ echo "GAMEDIR is set to: $GAMEDIR"
 export DATADIR="$GAMEDIR/gamedata"
 export LD_LIBRARY_PATH="$GAMEDIR/tools/libs.aarch64:$LD_LIBRARY_PATH"
 export TOOLDIR="$GAMEDIR/tools"
-export DESTDIR="$GAMEDIR/data/ark"
 
 # Permissions
 chmod 666 /dev/uinput
 chmod 777 "$TOOLDIR/innoextract"
 
-mkdir -p "$DESTDIR"
-
 EXE=$(find "$DATADIR" -maxdepth 1 -name "setup*.exe")
-"$TOOLDIR/innoextract" -e -d "$DESTDIR" $EXE
+"$TOOLDIR/innoextract" -e -d "$DATADIR" $EXE
 mv "$DATADIR"/app/* "$DATADIR/"
 rm -rf "$DATADIR/tmp"
 
-# Delete unneeded files from DESTDIR
-rm -r $DESTDIR/__redist *.exe *.dll *.tmp *.bat
+# Delete unneeded files from DATADIR
+rm -r $DATADIR/__redist $DATADIR/*.exe $DATADIR/*.dll
+rm -r $DATADIR/*.tmp $DATADIR/*.bat $DATADIR/goggame* $DATADIR/*.ico
 
 # Delete installer
 #rm "$DATADIR"/setup*.exe "$DATADIR"/setup*.bin
-
-# Copy open source files into $DESTDIR
-cp -r $GAMEDIR/install/share-games-arx/* $DESTDIR

@@ -21,7 +21,7 @@ get_controls
 GAMEDIR=/$directory/ports/arx
 CONFDIR="$GAMEDIR/conf/"
 INSTALLDIR=$GAMEDIR/install
-DATADIR=$GAMEDIR/data
+DATADIR=$GAMEDIR/gamedata
 BINARY=arx
 
 > "$GAMEDIR/log.txt" && exec > >(tee "$GAMEDIR/log.txt") 2>&1
@@ -33,7 +33,7 @@ cd $GAMEDIR
 export PATCHER_FILE="$GAMEDIR/tools/patchscript"
 export PATCHER_TIME="2 minutes"
 
-if [ ! -f "$DATADIR/arx/data.pak" ] && [ ! -f "$DATADIR/arx/DATA.PAK" ]; then
+if [ ! -f "$DATADIR/data.pak" ] && [ ! -f "$DATADIR/DATA.PAK" ]; then
   if [ -f "$controlfolder/utils/patcher.txt" ]; then
     $ESUDO chmod a+x "$GAMEDIR/tools/patchscript"
     source "$controlfolder/utils/patcher.txt"
@@ -51,9 +51,9 @@ mkdir -p $CONFDIR/local
 
 export XDG_CONFIG_HOME=$CONFDIR/config
 export XDG_DATA_HOME=$CONFDIR/local
-export XDG_DATA_DIRS=$DATADIR
 
 export SDL_GAMECONTROLLERCONFIG="$sdl_controllerconfig"
+export LD_LIBRARY_PATH=$GAMEDATA/libs.aarch64:$LD_LIBRARY_PATH
 
 if [ -f "${controlfolder}/libgl_${CFW_NAME}.txt" ]; then
   source "${controlfolder}/libgl_${CFW_NAME}.txt"
@@ -62,15 +62,15 @@ else
 fi
 
 # Calculate deadzone_scale based on DISPLAY_WIDTH
-value=$((4*DISPLAY_WIDTH/480))
+value=$((6*DISPLAY_WIDTH/480))
 echo "Setting dpad_mouse_step and deadzone_scale to $value"
 sed -i -E "s/(dpad_mouse_step|deadzone_scale) = .*/\1 = $value/g" \
   "$GAMEDIR"/$BINARY.ini*
 
 $GPTOKEYB2 "$BINARY" -c "./$BINARY.ini" &
 
-pm_platform_helper "$GAMEDIR/products/bin/$BINARY"
+pm_platform_helper "$GAMEDIR/$BINARY"
 
-$INSTALLDIR/bin/$BINARY
+./$BINARY --data-dir="$DATADIR" --data-dir="$GAMEDIR/data.libertatis"
 
 pm_finish

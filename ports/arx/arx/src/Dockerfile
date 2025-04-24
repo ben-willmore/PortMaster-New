@@ -17,6 +17,12 @@ RUN apt install -y --no-install-recommends \
   libfreetype-dev libopenal-dev \
   libsdl2-dev libepoxy-dev
 
+RUN apt remove -y \
+  libsdl2-dev
+
+RUN apt install -y --no-install-recommends \
+  innoextract
+
 WORKDIR "/root"
 
 CMD ["bash"]
