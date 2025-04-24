@@ -1,0 +1,16 @@
+name: Build Canabalt-hf
+on:
+  # Build on request
+  workflow_dispatch
+#  schedule:
+#    - cron:  '5 4 * * *'
+
+jobs:
+  build:
+    uses: ./.github/workflows/build_port.yaml
+    with:
+      port-name: "Canabalt-hf"
+      short-name: Canabalt-hf
+      port-dir: canabalt-hf
+      build-type: release
+      email: ben@willmore.eu
