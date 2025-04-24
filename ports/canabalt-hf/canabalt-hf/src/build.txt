@@ -1,3 +1,8 @@
+sudo chown `whoami` .
+
+mkdir canabalt
+cd canabalt
+
 wget https://opam.ocaml.org/install.sh
 chmod a+x install.sh
 echo | sudo ./install.sh
@@ -5,9 +10,6 @@ echo | sudo ./install.sh
 opam init --yes
 
 eval $(opam env)
-
-mkdir canabalt
-cd canabalt
 
 # current haxe
 git clone https://github.com/HaxeFoundation/haxe.git
