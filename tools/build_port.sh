@@ -12,6 +12,7 @@ BUILDSCRIPT=$SRCDIR/build.txt
 
 BUILDDIR=build-port
 
+chmod a+rwx $HOSTROOT
 mkdir $HOSTROOT/$BUILDDIR
 cd $HOSTROOT/$BUILDDIR
 cp $HOSTROOT/$SRCDIR/* .
