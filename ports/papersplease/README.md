@@ -6,16 +6,20 @@
 | Left stick | Mouse movement     |
 | A          | Left mouse button  |
 | B          | Right mouse button |
-| X/Y        | Mouse slow         |
+| X/Y/L1     | Mouse slow         |
 
 ### Rocknix libmali
 
 This port is not compatible with Rocknix libmali. Please use the system menus
  to switch to Panfrost.
 
+### Screen resolution
+
+Unfortunately, the game runs in a small window on devices with 720x720 and 1024x768 resolution. Also, text is small on small displays.
+
 ### Acknowledgements
 
-Thanks to [Lucas Pope](https://dukope.com) and [3909 LLC](https://3909.co) for the great and thought provoking game.
+Thanks to [Lucas Pope](https://dukope.com) and [3909 LLC](https://3909.co) for the iconic and thought provoking game.
 
 Thanks to ptitSeb for [box64](https://github.com/ptitSeb/box64) and binarycounter for [Westonpack](https://github.com/binarycounter/Westonpack/wiki) and his steamstub library, without all of which this port would not be possible.
 

@@ -57,19 +57,19 @@ $ESUDO mount "$controlfolder/libs/${weston_runtime}.squashfs" "${weston_dir}"
 value=$((4*DISPLAY_HEIGHT/360))
 echo "Setting dpad_mouse_step and deadzone_scale to $value"
 sed -i -E "s/(dpad_mouse_step|deadzone_scale) = .*/\1 = $value/g" \
-  "$GAMEDIR"/${BINARY}.ini
+  "$GAMEDIR"/${BINARY}.gptk
 
 # rocknix mode on rocknix panfrost/freedreno; libmali not supported
 if [[ "$CFW_NAME" = "ROCKNIX" ]]; then
   export rocknix_mode=1
 fi
 
-# the default pulseaudio backend doesn't always work on AmberELEC
-if [[ "$CFW_NAME" = "AmberELEC" ]]; then
+# the default pulseaudio backend doesn't always work well
+if [[ "$CFW_NAME" = "ROCKNIX" ]] || [[ "$CFW_NAME" = "AmberELEC" ]]; then
   audio_backend=alsa
 fi
 
-$GPTOKEYB2 "$BINARY" -c "$GAMEDIR/$BINARY.ini" &
+$GPTOKEYB2 "$BINARY" -c "$GAMEDIR/$BINARY.gptk" &
 
 cd $DATADIR
 
