@@ -1,0 +1,4 @@
+This version works with gog files on rocknix panfrost/adreno, but may be flaky due to the use of NODYNAREC to disable dynarec at a single memory location. I haven't tested enough to be sure.
+
+Using Steam files, the game launches but only gets as far as the map screen, after which it hangs with a black screen on SDL_PollEvent
+
