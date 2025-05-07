@@ -1,12 +1,16 @@
 ### Controls
 
-| Button     | Action             |
-| :--------- | :----------------- |
-| D-pad      | Mouse movement     |
-| Left stick | Mouse movement     |
-| A          | Left mouse button  |
-| B          | Right mouse button |
-| X/Y/L1     | Mouse slow         |
+| Button     | Action                 |
+| :--------- | :--------------------- |
+| D-pad      | Mouse movement         |
+| Left stick | Mouse movement         |
+| A          | Left mouse button      |
+| B          | Right mouse button     |
+| X        * | Toggle inspection mode |
+| Y        * | Show/hide stamps       |
+| L1         | Mouse slow             |
+
+(* when purchased in the game)
 
 ### Rocknix libmali
 
