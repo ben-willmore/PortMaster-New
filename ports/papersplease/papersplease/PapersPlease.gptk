@@ -3,13 +3,13 @@ b = "mouse_right"
 x = "space"
 y = "tab"
 l1 = "mouse_slow"
+r1 = "mouse_slow"
 
 start = "enter"
 back = "esc"
 
 l2 = \"
 l3 = \"
-r1 = \"
 r2 = \"
 r3 = \"
 up = mouse_movement_up

@@ -8,7 +8,7 @@
 | B          | Right mouse button     |
 | X        * | Toggle inspection mode |
 | Y        * | Show/hide stamps       |
-| L1         | Mouse slow             |
+| L1/R1      | Mouse slow             |
 
 (* when purchased in the game)
 
